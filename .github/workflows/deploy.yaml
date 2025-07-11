@@ -35,7 +35,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@v2
         # with:
