@@ -58,7 +58,11 @@ jobs:
         # if: github.event_name == 'pull_request'
         run: terraform plan -no-color -input=false
         continue-on-error: true
-
+        
+      - name: Workflow Dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: echo ${{ github.event.inputs.terraform }}
+        
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
