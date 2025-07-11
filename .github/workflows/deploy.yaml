@@ -29,6 +29,9 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+    env:
+      access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
