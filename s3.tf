@@ -9,9 +9,9 @@ region = var.region
 resource "aws_s3_bucket" "terraform-state-storage-s3-ak" {
    bucket = var.bucket_name
  
-    versioning {
-      enabled = false
-    }
+  #  versioning {
+  #   enabled = false
+  #  }
  
   #  lifecycle {
    #   prevent_destroy = true
