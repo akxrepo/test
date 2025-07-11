@@ -19,7 +19,7 @@ on:
         options:
           - plan
           - apply -auto-approve
-          - destroy
+          - destroy -auto-approve
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -47,6 +47,7 @@ jobs:
 
       - name: Terraform init
         id: init
+        if: github.event_name != 'workflow_dispatch'
         run: terraform init # -backend-config="bucket=$BUCKET_TF_STATE"
 
       # - name: Terraform format
