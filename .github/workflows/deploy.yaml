@@ -47,7 +47,7 @@ jobs:
 
       - name: Terraform init
         id: init
-        if: github.event_name != 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch'
         run: terraform init # -backend-config="bucket=$BUCKET_TF_STATE"
 
       # - name: Terraform format
@@ -77,3 +77,4 @@ jobs:
       #   run: |
       #     echo Add other actions to build,
       #     echo test, and deploy your project.
+
